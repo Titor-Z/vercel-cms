@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  cms:
+    image: node:18.19.0
+    restart: always
+    env_file:
+      - ./.env
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    expose:
+      - 1337
+    command: "yarn develop "
+    ports:
+      - 1337:1337
